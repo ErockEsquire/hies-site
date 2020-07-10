@@ -64,6 +64,17 @@ canvas {
 .water-section {
   position: relative;
   z-index: 1;
+  .water-cover {
+    width: 100%;
+    height: 65.5vh;
+    animation-name: fade;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    background-color: white;
+    visibility: visible;
+    position: absolute;
+    top: 0;
+  }
   .water-text {
     position: absolute;
     display: flex;
@@ -81,6 +92,11 @@ canvas {
       padding-left: 4vw;
     }
   }
+}
+
+@keyframes fade {
+  50% {opacity: 1}
+  100% {visbility: hidden; opacity: 0;}
 }
 
 .home-section {
@@ -171,7 +187,7 @@ canvas {
   background-size: cover;
   background-attachment: fixed;
   width: 100%;
-  height: 24rem;
+  height: 30rem;
   z-index: 1;
   position: relative;
 }

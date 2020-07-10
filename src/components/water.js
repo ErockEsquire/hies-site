@@ -9,6 +9,7 @@ export default function Water() {
   return(
     <section className="water-section">
       <div id="script" ref={instance}>{useScript(instance)}</div>
+      <div className="water-cover"/>
       <div className="water-text">
         <ScrollAnimation offset={25} animateIn="fadeInDown" animateOnce={true}><h2>Contributing to the World</h2></ScrollAnimation>
         <ScrollAnimation offset={25} animateIn="fadeInDown" animateOnce={true} delay={600}><h2>One Step at a time</h2></ScrollAnimation>
