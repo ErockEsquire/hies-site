@@ -83,7 +83,7 @@ canvas {
     top: 0;
     h2{
       margin: auto 0;
-      text-shadow: 1px 1px 4px black;
+      text-shadow: 1px 1px 3px rgb(53, 53, 53);
       color: white;
       font-size: 3rem;
       font-family: 'Oswald', sans-serif;
@@ -106,7 +106,7 @@ canvas {
   z-index: 1;
   .home-container {
     position: relative;
-    background-color: rgb(218, 218, 218);
+    background-color: rgb(231, 204, 163);
   }
   .home-content {
     display: flex;
@@ -148,34 +148,15 @@ canvas {
     }
   }
 
-  .home-solutions {
-    flex: 1;
-    padding: 2rem 1rem;
-    position: relative;
-    background: linear-gradient(90deg, rgba(76,184,196,1) 0%, rgba(60,211,173,1) 100%);
-    p {
-      font-size: 1rem;
-      margin: 0 0 0 1rem;
-      color: rgb(255, 255, 255);
-      text-shadow: 1px 1px 2px black;
-    }
-    .home-solutions-text {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-    }
-  }
   h1 {
-    color: rgb(108, 229, 238);
-    text-shadow: 1px 1px 3px black;
+    color: rgb(101, 217, 247);
+    text-shadow: 1px 1px 1px rgb(105, 104, 104);
     font-family: 'Oswald', sans-serif;
     font-size: 3rem;
   }
   h2 {
     color: rgb(108, 229, 238);
-    text-shadow: 1px 1px 3px black;
+    text-shadow: 1px 1px 1px rgb(105, 104, 104);
     font-family: 'Oswald', sans-serif;
     font-size: 2rem;
   }
@@ -234,8 +215,8 @@ canvas {
     align-items: center;
     padding: 3rem 10vw;
     h1 {
-      color: rgb(108, 229, 238);
-      text-shadow: 1px 1px 3px black;
+      color: rgb(101, 217, 247);
+      text-shadow: 1px 1px 1px rgb(105, 104, 104);
       font-family: 'Oswald', sans-serif;
       font-size: 3rem;
       text-align: center;
@@ -250,7 +231,7 @@ canvas {
     padding-top: 0;
   }
   .geo-text:nth-child(3) {
-    background-color: rgb(218, 218, 218);
+    background-color: rgb(231, 204, 163);
   }
 }
 
@@ -279,7 +260,7 @@ canvas {
     display: flex;
     h3 {
       color: rgb(108, 229, 238);
-      text-shadow: 1px 1px 2px black;
+      text-shadow: 1px 1px 1px rgb(105, 104, 104);
     }
     p {
       margin: .25rem 0;
