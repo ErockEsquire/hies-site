@@ -4,6 +4,7 @@ import Water from './components/water'
 import Navbar from './containers/navbar'
 import Home from './components/home'
 import Geo from './components/geo'
+import Contact from './components/contact'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Home/>
       <div className="image-break"/>
       <Geo/>
+      <Contact/>
     </div>
   );
 }
