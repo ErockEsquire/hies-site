@@ -31,12 +31,13 @@ canvas {
   font-family: 'Oswald';
   top: 0;
   z-index: 10;
-  a {
+  span {
     color: white;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     transition: 200ms ease-in-out;
+    cursor: pointer;
   }
-  a:hover {
+  span:hover {
     color: rgb(210, 252, 255);
   }
   .hies-name {
