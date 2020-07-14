@@ -15,7 +15,7 @@ canvas {
   width: 100vw;
 }
 
-#script {
+#water-script {
   height: 65.5vh;
   width: 100vw;
   background-color: rgb(223, 223, 223);
@@ -213,7 +213,7 @@ canvas {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 3rem 10vw;
+    padding: 3rem 30vw;
     h1 {
       color: rgb(101, 217, 247);
       text-shadow: 1px 1px 1px rgb(105, 104, 104);
@@ -288,7 +288,7 @@ canvas {
     height: 20rem;
   }
 
-  #script {
+  #water-script {
     height: 20rem;
   }
 
@@ -328,7 +328,7 @@ canvas {
     height: 10rem;
   }
 
-  #script {
+  #water-script {
     height: 10rem;
   }
 

@@ -10,9 +10,9 @@ export default function Home() {
             <img className="home-card-image" src="images/shore.jpg" alt="shore"/>
             <div className="home-card-text">
               <h1>About Us</h1>
-              <p>Hawaii International Environmental Services, founded in 1993, is a women-owned engineering and environmental services company with strategically located offices in Hawaii, Guam, Japan, and Colorado. </p>
+              <p>Hawaii International Environmental Services, founded in 1993, is a women-owned engineering and environmental services company.</p>
               <p className="indented"><Icon name="double angle right"/>We generate solutions to maximize sustainability, exceed government regulations, address and solve environmental concerns, ease the management of maintenance requirements, while doing what is right for the planet.</p>
-              <p className="indented"><Icon name="double angle right"/>With over 20 years of operating experience throughout the Pacific, HIES offers our clients high-quality professional services that are cost-effective and scientifically sound.</p>
+              <p className="indented"><Icon name="double angle right"/>With over 20 years of operating experience throughout the Pacific, HIES offers clients professional services that are cost-effective and scientifically sound.</p>
             </div>
           </div>
 
@@ -20,7 +20,7 @@ export default function Home() {
             <img className="home-card-image" src="images/green.jpg" alt="greenery and windmills"/>
             <div className="home-card-text">
               <h1>Mission & Culture</h1>
-              <p>HIES aims to drive Innovative green technologies through Globalization and Revitalization to clean, purify, and sustain the Environment. It is our mission and dedication to conserve and restore the environment.</p>
+              <p>HIES aims to drive Innovative green technologies through Globalization and Revitalization to clean, purify, and sustain the Environment.</p>
               <p className="indented"><Icon name="double angle right"/>We strive for excellence in all projects, and aim for complete customer satisfaction. Experience shows if we serve our clients well, our own success comes from self-satisfaction and lifetime friendships.</p>
               <p className="indented"><Icon name="double angle right"/>Teamwork and seamless communication are key. We welcome new and forward-thinking individuals in helping us achieve our goals for a greener environment.</p>
             </div>

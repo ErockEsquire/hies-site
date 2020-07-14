@@ -10,7 +10,7 @@ const useScript = (ref) => {
     script.setAttribute('type', 'text/javascript');
     script.innerHTML = `function initPixi() {
       app = new PIXI.Application({width: window.innerWidth, height: window.innerHeight});
-      const container = document.getElementById('script')
+      const container = document.getElementById('water-script')
       container.appendChild(app.view);
   
       let image = new PIXI.Sprite.from("./images/bluewater.png");
