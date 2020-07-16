@@ -15,6 +15,7 @@ export default function Geo() {
       <div className="geo-text">
         <h1>Commitment to Quality</h1>
         <p>HIES professionals are certified by both Private/Commercial and DOD certifications/licenses, providing clients from early AE design support to project implementation, oversight, and budgeting, to deliver quality projects.</p>
+        <p>With over 20 years of operating experience throughout the Pacific, HIES offers clients professional services that are cost-effective and scientifically sound.</p>
       </div>
     </section>
   )

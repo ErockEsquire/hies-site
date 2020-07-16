@@ -11,8 +11,8 @@ export default function Home() {
             <div className="home-card-text">
               <h1>About Us</h1>
               <p><strong>H</strong>awaii <strong>I</strong>nternational <strong>E</strong>nvironment <strong>S</strong>ervices, founded in 1993, is a women-owned engineering and environmental services company.</p>
-              <p className="indented"><Icon name="double angle right"/>We generate solutions to maximize sustainability, exceed government regulations, address and solve environmental concerns, ease the management of maintenance requirements, while doing what is right for the planet. Services include but not limited to asbestos clearing, mold removal, and groundwater sample testing.</p>
-              <p className="indented"><Icon name="double angle right"/>With over 20 years of operating experience throughout the Pacific, HIES offers clients professional services that are cost-effective and scientifically sound.</p>
+              <p className="indented"><Icon name="double angle right"/>We generate solutions to maximize sustainability, exceed government regulations, and address and solve environmental concerns, all while doing what is right for the planet.</p>
+              <p className="indented"><Icon name="double angle right"/>Asbestos clearing, mold removal, waste minimalization, and groundwater sample testing are just some of the services we provide.</p>
             </div>
           </div>
 
@@ -20,9 +20,9 @@ export default function Home() {
             <img className="home-card-image" src="images/green.jpg" alt="Environmental concern. Greenery and windmills."/>
             <div className="home-card-text">
               <h1>Mission & Culture</h1>
-              <p>HIES aims to drive Innovative green technologies through Globalization and Revitalization to clean, purify, and sustain the Environment.</p>
+              <p>HIES aims to drive innovative green technologies to clean, purify, and sustain the environment.</p>
               <p className="indented"><Icon name="double angle right"/>We strive for excellence in all projects, and aim for complete customer satisfaction. Experience shows if we serve our clients well, our own success comes from self-satisfaction and lifetime friendships.</p>
-              <p className="indented"><Icon name="double angle right"/>Teamwork and seamless communication are key. We welcome new and forward-thinking individuals in helping us achieve our goals for a greener environment.</p>
+              <p className="indented"><Icon name="double angle right"/>Teamwork and seamless communication are key. We welcome new and forward-thinking individuals in helping us achieve our goals for a greener world.</p>
             </div>
           </div>
         </div>
