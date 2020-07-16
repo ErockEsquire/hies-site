@@ -11,7 +11,7 @@ export default function Home() {
             <div className="home-card-text">
               <h1>About Us</h1>
               <p><strong>H</strong>awaii <strong>I</strong>nternational <strong>E</strong>nvironment <strong>S</strong>ervices, founded in 1993, is a women-owned engineering and environmental services company.</p>
-              <p className="indented"><Icon name="double angle right"/>We generate solutions to maximize sustainability, exceed government regulations, address and solve environmental concerns, ease the management of maintenance requirements, while doing what is right for the planet. Services include asbestos clearing, mold removal, and groundwater sample testing.</p>
+              <p className="indented"><Icon name="double angle right"/>We generate solutions to maximize sustainability, exceed government regulations, address and solve environmental concerns, ease the management of maintenance requirements, while doing what is right for the planet. Services include but not limited to asbestos clearing, mold removal, and groundwater sample testing.</p>
               <p className="indented"><Icon name="double angle right"/>With over 20 years of operating experience throughout the Pacific, HIES offers clients professional services that are cost-effective and scientifically sound.</p>
             </div>
           </div>
