@@ -59,6 +59,65 @@ canvas {
   img {
     height: 10vh;
   }
+  .nav-item {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    .nav-dropdown-closed {
+      list-style: none;
+      position: absolute;
+      border-radius: 5px;
+      padding: 0;
+      margin: 0;
+      top: 5.5rem;
+      right: -4rem;
+      width: 12rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: 600ms ease;
+    }
+    .nav-dropdown-open {
+      list-style: none;
+      position: absolute;
+      background: linear-gradient(135deg, rgba(112,225,245,1) 0%, rgba(0,210,255,1) 100%);
+      border-radius: 5px;
+      padding: 0;
+      margin: 0;
+      top: 5.5rem;
+      right: -4rem;
+      width: 12rem;
+      visibility: visible;
+      opacity: 1;
+      transition: 600ms ease;
+    }
+    .nav-dropdown-li {
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      padding: 2rem 1rem;
+      background: linear-gradient(135deg, rgba(112,225,245,1) 0%, rgba(28,239,255,1) 100%);
+      color: white;
+      transition: 400ms ease-in-out;
+    }
+    .nav-dropdown-li:first-child {
+      border-radius: 5px 5px 0 0;
+    }
+    .nav-dropdown-li:last-child {
+      border-radius: 0 0 5px 5px;
+    }
+    .nav-dropdown-li:hover {
+      filter: brightness(1.05);
+    }
+  }
+  // .nav-item:hover .nav-dropdown-li {
+  //   height: 2rem;
+  //   opacity: 1;
+  // }
+  
 }
 
 .water-section {
