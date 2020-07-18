@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function Navbar() {
 
-  const services = [{name: "Environmental Services"}, {name: "Tsunami Services"}, {name: "International Management"}];
+  const services = [{name: "Green Technologies"}, {name: "Range Sustainment"}, {name: "Environmental Services"}, {name: "Tsunami Services"}, {name: "International Management"}];
   const projects = [{name: "Environmental Projects"}, {name: "GIS Projects"}];
 
   return(
@@ -33,7 +33,7 @@ const NavitemList = (props) => {
   const { list } = props
   const [ open, setOpen ] = useState(false)
   return(
-    <div className="nav-item" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)} onMouseLeave={() => setOpen(false)}>
+    <div className="nav-item" onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       <span>
         {props.children}
       </span>
