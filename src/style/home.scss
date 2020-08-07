@@ -1,0 +1,364 @@
+$black: rgb(75, 64, 64);
+$sand: rgb(231, 204, 163);
+$teal: rgb(117, 228, 236);
+$water: rgba(117,193,217,1);
+
+
+.home-section {
+  background: white;
+  z-index: 1;
+  position: relative;
+  height: fit-content;
+  h1 {
+    font-family: 'Carrois Gothic SC', sans-serif;
+  }
+  h2 {
+    font-family: "Oswald";
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  p {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2rem;
+  }
+}
+
+.home-desc {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 60vh;
+  padding: 5vh 0;
+}
+.home-desc.two {
+  background-image: url('../images/handshake.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+.home-desc-text {
+  padding: 2rem;
+  color: rgb(75, 64, 64);
+  position: relative;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    margin-left: 2vw;
+    font-size: 1.5rem;
+  }
+}
+
+.home-center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 3vw 10vh 3vw;
+  padding: 0 15vw;
+  h2 {
+    font-weight: 400;
+  }
+  p {
+    text-align: center;
+    line-height: 2rem;
+  }
+
+}
+
+.home-services {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: $black;
+  background: white;
+  padding: 5vh 5vw;
+  .home-services-text {
+    text-align: center;
+    margin-bottom: 5vh;
+    background-color: $sand;
+    box-shadow: 1px 0 16px rgb(192, 192, 192);
+    padding: 2vh 5vw;
+    h2 {
+      font-family: "Oswald";
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    p {
+      line-height: 2.5rem;
+    }
+  }
+  .home-services-cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    .home-service-card {
+      width: 20rem;
+      min-height: 30rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 0 1rem rgb(230, 230, 230);
+      transition: 600ms ease-in-out;
+      cursor: pointer;
+      h2 {
+        margin: 1.5rem;
+        font-weight: 400;
+      }
+      p {
+        font-size: 1rem;
+        margin: 0 1.5rem 1.5rem 1.5rem;
+      }
+      :nth-child(3) {
+        min-height: 9rem;
+      }
+      p:last-child {
+        margin-top: auto;
+        font-size: .9rem;
+      }
+      a {
+        color: $black;
+      }
+      .home-service-card-image {
+        width: 100%;
+        height: 25vh;
+      }
+      .home-service-card-title {
+        display: flex;
+        align-items: center;
+      }
+      .svg {
+        width: .75rem;
+        margin-top: .5rem;
+        opacity: 0;
+        transition: 200ms ease-in-out;
+      }
+    }
+    .home-service-card:hover {
+      box-shadow: 0 0 1rem rgb(163, 163, 163);
+      .svg {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.home-services-steps {
+  display: flex;
+  justify-content: space-evenly;
+  .home-service-step {
+    width: 15rem;
+    h2 {
+      font-family: "Oswald";
+      font-weight: 400;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    p {
+      line-height: 2rem;
+      font-size: 1rem;
+    }
+    div {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  .svg {
+    width: 2rem;
+    display: flex;
+  }
+}
+
+.home-services-end {
+  margin-top: 4rem;
+  text-align: center;
+  font-family: "Oswald";
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.home-desc-image-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 47vw;
+  height: 60vh;
+  .home-desc-image {
+    max-height: 60vh;
+    max-width: 47vw;
+    object-fit: contain;
+    opacity: 0;
+    animation: 
+      fadeIn 3s,
+      fadeOut 2s 3s;
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity: .4;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: .4;}
+}
+
+.home-desc-image-container.type {
+  width: 53rem;
+}
+
+.home-service-title:before {
+  content: '';
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: 3px solid transparent;
+  box-sizing: border-box;
+}
+.home-service-card:hover .home-service-title:before {
+  height: 2.5rem;
+  width: 5rem;
+  border-bottom: 4px solid rgb(85, 94, 94);
+  transition: width 200ms linear;
+}
+
+.home-type {
+  position: relative;
+  color: white;
+  padding: 0 10vw;
+  h1 {
+    font-family: 'Oswald';
+    color: $black;
+    display: inline;
+    font-size: 4.5rem;
+    color: white;
+  }
+  p {
+    margin-top: 1.5rem;
+  }
+}
+
+.home-image-break {
+  background-image: url('../images/assessment.jpg');
+  background-position: 47%;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 5vw 5vw 0 5vw;
+}
+
+.home-geo {
+  position: relative;
+  background: $water;
+  background-size: cover;
+  color: $black;
+  width: 35rem;
+  padding: 3vw;
+  margin-bottom: 5vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 1px 0 16px rgb(85, 85, 85);
+  h2 {
+    font-family: 'Oswald';
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  p {
+    font-size: 1.2rem;
+  }
+  .home-licenses {
+    display: flex;
+    justify-content: center;
+  }
+  .home-license {
+    height: 15vh;
+    margin: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .home-desc-text {
+    p {
+      font-size: 1rem;
+    }
+  }
+  .home-geo {
+    width: 26rem;
+    p {
+      font-size: 1rem;
+    }
+  }
+  .home-desc-image-container.type {
+    width: 100%;
+  }
+
+  .home-services-steps {
+    flex-direction: column;
+    align-items: center;
+    .home-service-step {
+      width: 22rem;
+      h2 {
+        font-weight: 400;
+        text-align: center;
+      }
+      p {
+        line-height: 2rem;
+        font-size: 1rem;
+      }
+      div {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .svg {
+      transform: rotate(90deg);
+    }
+  }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .home-type {
+    h1 {
+      font-size: 3rem;
+    }
+  }
+
+  .home-desc {
+    flex-direction: column;
+    .home-desc-image-container {
+      width: 100%;
+      height: 40vh;
+      .home-desc-image {
+        max-width: 100%;
+      }
+    }
+    .home-desc-text {
+      width: 100%;
+    }
+  }
+
+  .home-geo {
+    width: 100%;
+    .home-license {
+      height: 10vh;
+      margin: 1rem;
+    }
+  }
+}
+
+
+// margin: .5rem 0 .5rem 3rem;
+// font-size: .9rem;
+// transition: 600ms ease;
+// background: url('../images/bullet.png') no-repeat left top;
+// padding: 0 2rem;
+// line-height: 1.5rem;

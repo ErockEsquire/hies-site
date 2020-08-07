@@ -1,0 +1,16 @@
+$black: rgb(75, 64, 64);
+$sand: rgb(231, 204, 163);
+
+.service-section {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.services-subservice-list {
+  transition: 600ms ease-in-out;
+}
+
+.service-bar {
+  list-style: none;
+}

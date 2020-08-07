@@ -1,0 +1,106 @@
+$black: rgb(75, 64, 64);
+$sand: rgb(231, 204, 163);
+$teal: rgb(117, 228, 236);
+
+canvas {
+  height: 65vh;
+  width: 100vw;
+}
+
+#water-script {
+  padding-top: 23vh;
+  height: 89vh;
+  width: 100vw;
+  background-color: rgb(255, 255, 255);
+}
+
+.water-cover {
+  width: 100%;
+  height: 100%;
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  background: radial-gradient(circle, rgba(62,161,193,1) 0%, rgba(82,174,203,1) 35%, rgba(117,193,217,1) 58%, rgba(150,208,230,1) 83%);  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.water-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 5vw;
+  z-index: 9;
+  width: 53rem;
+  h2{
+    margin-bottom: 3rem;
+    text-shadow: 1px 1px 5px $black;
+    color: $black;
+    font-size: 4rem;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .second {
+    font-weight: 400;
+  }
+}
+
+@keyframes fade {
+  50% {opacity: 1}
+  100% {visibility: hidden; opacity: 0;}
+}
+
+.water-section {
+  position: relative;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 1000px) {
+  canvas {
+    height: 65vh;
+  }
+  
+  #water-script {
+    height: 65.5vh;
+    padding-top: 0;
+  }
+
+  .water-text h2{
+    font-size: 4vw;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  canvas {
+    height: 20rem;
+  }
+
+  #water-script {
+    height: 20rem;
+  }
+
+  .water-section {
+    pointer-events: none;
+  }
+
+  .water-text {
+    padding: 5vh 5vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  canvas {
+    height: 11rem;
+  }
+
+  #water-script {
+    height: 11rem;
+  }
+
+  .water-text {
+    padding: 1rem;
+  }
+
+}

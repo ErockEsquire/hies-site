@@ -1,0 +1,114 @@
+$black: rgb(75, 64, 64);
+$sand: rgb(231, 204, 163);
+$teal: rgb(117, 228, 236);
+$water: linear-gradient(90deg, rgba(82,174,203,1) 16%, rgba(117,193,217,1) 31%);
+$whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,1) 100%) no-repeat;
+
+
+.about-section {
+  h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: $black;
+    font-weight: 400;
+    border-bottom: 4px solid rgb(85, 94, 94);
+  }
+  p {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2rem;
+    color: $black;
+  }
+}
+
+.about-top-header {
+  color: $black;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background: $water;
+  padding: 3vh 5vw;
+  h1 {
+    text-align: center;
+    font-family: 'Expletus Sans', sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+}
+
+.about-intro {
+  padding: 8vh 5vw 4vh 5vw;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  h1 {
+    margin-bottom: 2vh;
+  }
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: $black;
+  }
+  .about-intro-image {
+    width: 50vw;
+    object-fit:cover;
+  }
+  .about-intro-text {
+    width: 35rem;
+    padding: 0 5vh;
+    margin: 3vw;
+  }
+  p {
+    margin-left: 1rem;
+    line-height: 2rem;
+  }
+}
+
+
+.about-mission {
+  background-image: url('../images/envplans.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  .about-mission-text {
+    width: 35rem;
+    padding: 5vh 5vh;
+    margin: 3vw;
+    background: $sand;
+    box-shadow: 1px 0 16px rgb(126, 125, 125);
+    h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      color: $black;
+    }
+    p {
+      margin-left: 1vw;
+      line-height: 2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .about-intro {
+    padding: 8vh 5vw 4vh 5vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: white;
+    .about-intro-image {
+      width: 100%;
+      object-fit:cover;
+    }
+    .about-intro-text {
+      width: 100%;
+      margin: 3vw;
+      padding: 5vh 5vw;
+    }
+  }
+
+  .about-mission {
+    height: fit-content;
+  }
+}
