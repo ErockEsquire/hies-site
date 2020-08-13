@@ -18,7 +18,6 @@ $water: rgba(117,193,217,1);
     font-size: 2rem;
     color: $black;
     font-weight: 400;
-    margin-top: 3rem;
   }
   h3 {
     font-family: 'Oswald', sans-serif;
@@ -122,6 +121,14 @@ $water: rgba(117,193,217,1);
   }
 }
 
+.project-title.environmental {
+  min-height: 14rem;
+}
+
+.project-title.gis {
+  min-height: 12rem;
+}
+
 .project-card {
   display: flex;
   flex-direction: column;
@@ -129,9 +136,8 @@ $water: rgba(117,193,217,1);
   box-shadow: 
     5px 5px 5px -5px #888, 
     -5px -5px 5px -15px #888;
-  .project-title.environmental {
+  .project-title {
     margin: 1rem 1rem 0 1rem;
-    min-height: 14rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -143,9 +149,8 @@ $water: rgba(117,193,217,1);
       border-bottom: 4px solid rgb(85, 94, 94);
     }
   }
-  .project-title.gis {
+  .project-title {
     margin: 1rem 1rem 0 1rem;
-    min-height: 12rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
