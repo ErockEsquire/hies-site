@@ -20,7 +20,7 @@ export default function Navbar() {
     
       <Link to={'/'}>
         <div className="hies-name">
-          <img src="images/new-hies.png" alt="hies logo"/>
+          <img src="favicon.png" alt="hies logo"/>
           <div className="name">
             <h1 className="hies">HIES</h1>
             <p>Hawaii International Environmental Services</p>
