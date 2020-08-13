@@ -74,14 +74,14 @@ $water: rgba(117,193,217,1);
   flex-direction: column;
   color: $black;
   background: white;
-  padding: 5vh 1vw;
+  padding: 5vh 5vw;
   .home-services-text {
     text-align: center;
     margin-bottom: 5vh;
     background-color: $sand;
     box-shadow: 1px 0 16px rgb(192, 192, 192);
     padding: 2vh 5vw;
-    margin: 0 5vw 5vh 5vw;
+    margin: 0 0 5vh 0;
     h2 {
       font-family: "Oswald";
       text-transform: uppercase;
