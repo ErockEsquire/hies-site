@@ -7,7 +7,6 @@ import { OtherHMT, OtherRS, OtherMMR, OtherDMS} from './other'
 import '../style/service.scss'
 import { Route, Link } from 'react-router-dom'
 import ScrollAnimation from 'react-animate-on-scroll';
-import { Carousel } from 'react-responsive-carousel';
 
 import { search } from '../redux-actions'
 import { useSelector, useDispatch } from 'react-redux'
