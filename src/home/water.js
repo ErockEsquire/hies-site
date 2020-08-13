@@ -44,7 +44,7 @@ const useScript = (ref) => {
       app.stage.addChild(displacementSprite);
       app.stage.filters = [displacementFilter];
   
-      app.renderer.view.style.transform = 'scale(1.02)';
+      app.renderer.view.style.transform = 'scale(1.00)';
   
       displacementSprite.scale.x = 4;
       displacementSprite.scale.y = 4;

@@ -7,22 +7,19 @@ $whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,
 
 :root {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 .App {
   position: relative;
 }
 
-//bluewater background: linear-gradient(90deg, rgba(109,213,237,1) 0%, rgba(33,147,176,1) 100%);
-//blueteal seaweed background: linear-gradient(90deg, rgba(76,184,196,1) 0%, rgba(60,211,173,1) 100%);
-//shore background: linear-gradient(90deg, rgba(192,192,170,1) 0%, rgba(28,239,255,1) 100%);
-//lavenderwhite background: linear-gradient(90deg, rgba(237,230,255,1) 0%, rgba(248,244,255,1) 100%);
-// $water: linear-gradient(90deg, rgba(62,161,193,1) 0%, rgba(82,174,203,1) 16%, rgba(117,193,217,1) 31%, rgba(150,208,230,1) 55%);
-
-
+body {
+  overflow-x: hidden;
+}
 
 .contact-section {
-  z-index: -1;
+  z-index: 0;
   position: sticky;
   bottom: 0;
   background-image: url('./images/greennewdeal.jpg');
@@ -32,7 +29,7 @@ $whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,
     background-color: rgba(118, 184, 82, .8);
     width: 100%;
     height: 100%;
-    padding: 3rem;
+    padding: 5rem 3rem 3rem 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,10 +41,11 @@ $whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,
   }
   .contact-text {
     display: flex;
+    width: 80%;
     h3 {
       font-family: "Oswald";
       text-transform: uppercase;
-      font-weight: 400;
+      font-weight: 500;
       color: $black;
       text-shadow: 1px 1px 1px rgb(105, 104, 104);
     }
@@ -57,7 +55,8 @@ $whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,
       color: white;
     }
     div {
-      margin: 0 2vw;
+      margin: 0 2vw 2vh 2vw;
+      flex: 1;
     }
     
   }
@@ -72,28 +71,47 @@ $whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,
   }
   .contact-icons {
     font-size: 1.5rem;
-    margin-top: 2rem;
     width: 15rem;
     display: flex;
     justify-content: space-evenly;
     a {
       color: $black;
+      transition: 400ms ease-in-out;
     }
+  }
+  .contact-icons a:hover {
+    color: $sand;
   }
 }
 
-@media only screen and (max-width: 800px) {
-
-  .navbar {
-    height: 4rem;
-    .hies-name .hies {
-      font-size: 2rem;
-      padding-right: 2vw;
-    }
-    img {
-      height: 4rem;
-    }
+.notfound-section {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(245, 240, 226);
+  h1 {
+    font-family: "Expletus Sans", sans-serif;
+    text-transform: uppercase;
+    color: $black;
   }
+  p {
+    font-family: "Fira Sans", sans-serif;
+    color: $black;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .contact-section {
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
 
   .home-section {
     .home-content {
@@ -104,6 +122,24 @@ $whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,
       .home-card:last-child {
         margin: 1rem;
       }
+    }
+  }
+
+  .contact-section {
+    overflow: hidden;
+    background-attachment: initial;
+    .contact-color {
+      padding: 1rem 2vw;
+    }
+    .contact-logos {
+      .business-logo {
+        height: 3rem;
+        width: 5rem;
+        margin: 1.5vw;
+      }
+    }
+    p {
+      margin: 1rem;
     }
   }
 }
@@ -158,9 +194,13 @@ $whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,
   }
 
   .contact-section {
-    overflow: hidden;
+    background-attachment: initial;
+    background-position-x: 40%;
     .contact-color {
       padding: 2rem 2vw;
+    }
+    .contact-text {
+      flex-direction: column;
     }
     .contact-logos {
       .business-logo {
@@ -168,6 +208,9 @@ $whitegradient: linear-gradient(90deg, rgba(237,255,255,1) 0%, rgba(248,255,255,
         width: 5rem;
         margin: 1.5vw;
       }
+    }
+    .contact-icons {
+      margin-top: 1rem;
     }
   }
 }

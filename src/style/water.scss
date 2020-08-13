@@ -8,8 +8,8 @@ canvas {
 }
 
 #water-script {
-  padding-top: 23vh;
-  height: 89vh;
+  padding-top: 25vh;
+  height: 90vh;
   width: 100vw;
   background-color: rgb(255, 255, 255);
 }
@@ -59,11 +59,11 @@ canvas {
 
 @media only screen and (max-width: 1000px) {
   canvas {
-    height: 65vh;
+    height: 55vh;
   }
   
   #water-script {
-    height: 65.5vh;
+    height: 55.5vh;
     padding-top: 0;
   }
 
@@ -87,6 +87,7 @@ canvas {
 
   .water-text {
     padding: 5vh 5vw;
+    width: 100%;
   }
 }
 
@@ -96,11 +97,15 @@ canvas {
   }
 
   #water-script {
-    height: 11rem;
+    padding-top: 10vh;
+    height: calc(11rem + 10vh);
   }
 
   .water-text {
     padding: 1rem;
+    h2 {
+      font-size: 1.5rem
+    }
   }
 
 }

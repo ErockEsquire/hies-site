@@ -1,6 +1,6 @@
 $black: rgb(75, 64, 64);
 $sand: rgb(231, 204, 163);
-$teal: rgb(117, 228, 236);
+$green: rgb(118, 184, 82);
 $water: rgba(117,193,217,1);
 
 
@@ -47,7 +47,7 @@ $water: rgba(117,193,217,1);
   justify-content: center;
   p {
     margin-left: 2vw;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -59,7 +59,7 @@ $water: rgba(117,193,217,1);
   margin: 0 3vw 10vh 3vw;
   padding: 0 15vw;
   h2 {
-    font-weight: 400;
+    font-weight: 500;
   }
   p {
     text-align: center;
@@ -74,18 +74,19 @@ $water: rgba(117,193,217,1);
   flex-direction: column;
   color: $black;
   background: white;
-  padding: 5vh 5vw;
+  padding: 5vh 1vw;
   .home-services-text {
     text-align: center;
     margin-bottom: 5vh;
     background-color: $sand;
     box-shadow: 1px 0 16px rgb(192, 192, 192);
     padding: 2vh 5vw;
+    margin: 0 5vw 5vh 5vw;
     h2 {
       font-family: "Oswald";
       text-transform: uppercase;
       letter-spacing: 2px;
-      font-weight: 700;
+      font-weight: 600;
     }
     p {
       line-height: 2.5rem;
@@ -270,6 +271,7 @@ $water: rgba(117,193,217,1);
     letter-spacing: 2px;
     text-align: center;
     text-transform: uppercase;
+    font-weight: 600;
   }
   p {
     font-size: 1.2rem;
@@ -284,7 +286,7 @@ $water: rgba(117,193,217,1);
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 900px) {
   .home-desc-text {
     p {
       font-size: 1rem;
@@ -320,6 +322,9 @@ $water: rgba(117,193,217,1);
     }
     .svg {
       transform: rotate(90deg);
+      svg {
+        height: 5rem;
+      }
     }
   }
 
@@ -343,7 +348,11 @@ $water: rgba(117,193,217,1);
     }
     .home-desc-text {
       width: 100%;
+      padding: 2rem 2rem 0rem 2rem;
     }
+  }
+  .home-center-text {
+    margin: 0 1vw 10vh 1vw;
   }
 
   .home-geo {

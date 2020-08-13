@@ -1,114 +1,311 @@
-import React, { useState } from 'react'
-import GIS from './gis'
+import React, { Fragment, useState, useEffect } from 'react'
+import { GisSDA, GisDD, GisIOP } from './gis'
+import { ConsultingEMP, ConsultingCM, ConsultingHW, ConsultingUST, ConsultingWWM, ConsultingLP, ConsultingSP, ConsultingNCP } from './consulting'
+import { AssessmentAML, AssessmentAEP, AssessmentECA, AssessmentESA, AssessmentGWM, AssessmentBA} from './assessment'
+import { RemediationSI, RemediationBR } from './remediation'
+import { OtherHMT, OtherRS, OtherMMR, OtherDMS} from './other'
 import '../style/service.scss'
+import { Route, Link } from 'react-router-dom'
+import ScrollAnimation from 'react-animate-on-scroll';
+import { Carousel } from 'react-responsive-carousel';
 
-import { Route } from 'react-router-dom'
+import { search } from '../redux-actions'
+import { useSelector, useDispatch } from 'react-redux'
+
+
+function renderSearch(searchTerm) {
+  const refinedSearchTerm = searchTerm.toLowerCase().split(' ')
+  const searchResults = keywordSets.filter(service => refinedSearchTerm.some(key => service.keywords.includes(key)));
+  return searchResults.map(result => result.component)
+}
+
+const gissda = {component: <GisSDA/>, keywords: "gis mapping surveying data acquisition design imagery cartography arc cadd internet aerial photogrammetry gps modeling deploy technology server geographic geography host spatial custom programming python it information digital computer photography tracking computerized and"}
+
+const gisdd = {component: <GisDD/>, keywords: "gis mapping data database development deploy design imagery cartography arc cadd internet gps modeling deploy technology server geographic geography host spatial custom programming python it information digital computer photography tracking computerized support"}
+
+const gisiop = {component: <GisIOP/>, keywords: "gis mapping surveying data acquisition design imagery cartography arc cadd internet aerial photogrammetry object identification classification interpretation gps modeling deploy technology server geographic geography host spatial custom programming python it information digital surface terrain dsm dtm computer photography tracking computerized and"}
+
+const consultingemp = {component: <ConsultingEMP/>, keywords: "general environmental consulting plans planning system emp ems bmp best management compliance epa protocols comply audits coordinate prevention support social economic impact federal law state pollution"}
+
+const consultingcm = {component: <ConsultingCM/>, keywords: "environmental consulting plans planning system practices bmp best management compliance epa protocols comply audits quality control assurance coordinate construction prior support"}
+
+const consultinghw = {component: <ConsultingHW/>, keywords: "consulting plans planning system practices best management compliance epa protocols comply audits coordinate hazardous waste contaminant contamination prevention asbestos mold lead based paint lead-based mercury pcb silica arsenic ozone rodent bird radioactive flammable toxic materials testing remediation remediate and removal remove"}
+
+const consultingust = {component: <ConsultingUST/>, keywords: "consulting plans planning system bmp best management compliance epa protocols comply audits coordinate prevention ust ast underground aboveground storage tank epa fuels accidental release permitting excavation soil sampling closure remediation remediate removal remove testing and & samples"}
+
+const consultingwwm = {component: <ConsultingWWM/>, keywords: "consulting plans planning system management compliance epa protocols comply audits coordinate prevention epa accidental release permitting sampling npdes clean water act swppp storm pollution wastewater pollutant discharge elimination system monitoring survey testing requirements doh department and samples & longterm shortterm long-term short-term"}
+
+const consultinglp = {component: <ConsultingLP/>, keywords: " environmental consulting plans planning system bmp best management compliance epa protocols comply coordinate prevention epa permitting sampling landfill contaminant gas soil land pollutant monitoring survey test longterm shortterm long-term short-term"}
+
+const consultingsp = {component: <ConsultingSP/>, keywords: " environmental consulting plans planning system bmp best management compliance epa protocols comply coordinate prevention epa accidental release permitting sampling pollution pollute contaminant gas soil land pollutant monitoring survey test oil spill countermeasure support spcc and samples &"}
+
+const consultingncp = {component: <ConsultingNCP/>, keywords: "environmental consulting plans planning system survey compliance epa protocols comply audits coordinate prevention epa permitting  survey support nepa national policy act eis eia ea impact assessment report economic social statements federal state law and &"}
+
+const assessmenteca = {component: <AssessmentECA/>, keywords: "assessment survey cercla rcra investigation cercla/rcra environmental compliance audits mismanagement hazardous materials contaminants comprehensive response compensation liability resource concersation recovery act responsible party identify remediation remediate installation facilities abandoned operating non-operating non in use in-use uncontrolled management and soil water groundwater air building structure"}
+
+const assessmentaml = {component: <AssessmentAML/>, keywords: "assessment hazardous hazards waste materials survey asbestos mold lead lead-based based paint mold mercury pcb silica arsenic radioactive flammable toxic contaminants contaminated polluted pollute prevention accidental and remediation remediate monitoring inspection investigate detection soil water groundwater air building structure removal remove"}
+
+const assessmentaep = {component: <AssessmentAEP/>, keywords: "assessment inspection survey monitoring air emissions permitting sampling quality investigate detection operating pollution pollute contamination contaminant sources samples longterm shortterm long-term short-term"}
+
+const assessmentesa = {component: <AssessmentESA/>, keywords: "environmental site assessment real estate transfer esa phase 1 one 2 two and association for sampling testing materials astm liability contaminant risks inspection detect investigate soil water groundwater air building structure biological survey monitoring waste local interview owners"}
+
+const assessmentgwm = {component: <AssessmentGWM/>, keywords: "environmental sampling groundwater monitoring soil gas testing land air quality detect investigate permitting prevention drill testing samples"}
+
+const assessmentba = {component: <AssessmentBA/>, keywords: "environmental biological assessment ecosystem species inventory fauna flora animals flowers plants local impact biologists biology endangered invasive disrupt monitoring longterm shortterm long-term short-term sample sampling"}
+
+const remediationsi = {component: <RemediationSI/>, keywords: "remediation systems installation and & support hazardous hazards waste materials survey asbestos mold lead lead-based based paint mold mercury pcb silica arsenic radioactive flammable toxic contaminants contaminated polluted pollute prevention accidental and remediation remediate longterm shortterm long-term short-term structure removal remove resolve resolutions"}
+
+const remediationbr = {component: <RemediationBR/>, keywords: "remediation bioremediation restoration micro organisms micro-organisms longterm shortterm long-term short-term process aerobic anaerobic nature biology environmental phytoremediation mycoremediation remediate contaminants contaminate breakdown degrade soil groundwater biological restore fungi plants enzymes resolve resolutions"}
+
+const keywordSets = [gissda, gisdd, gisiop, consultingemp, consultingcm, consultinghw, consultingust, consultingwwm, consultinglp, consultingsp, consultingncp, assessmenteca, assessmentaml, assessmentaep, assessmentesa, assessmentgwm, assessmentba, remediationsi, remediationbr]
+
 
 export default function Services() {
 
-  const [gis, setGis] = useState('service')
-  const [consulting, setConsulting] = useState('service')
-  const [assessment, setAssessment] = useState('service')
-  const [remediation, setRemediation] = useState('service')
-  const [other, setOther] = useState('service')
+  const service = useSelector(state => state.service)
+  const dispatch = useDispatch();
 
-  
-    
+  const handlesetSearch = (event) => {
+    dispatch(search(event.target.value))
+  }
+
+  const [currentImage, setCurrentImage] = useState(0)
+
+  const serviceImage = [{src: "./images/services/slide1.jpg", alt: "Environmental sample testing in lab.", place: "center"}, {src: "./images/services/slide2.jpg", alt: "Shaking hands over reports and invoices.", place: "center"}, {src: "./images/services/slide3.jpg", alt: "GIS surveying equipment on the field", place: "bottom"}, {src: "./images/services/slide3.jpg", alt: "GIS surveying equipment on the field", place: "bottom"}]
+
+  const Image = ( { image } ) => {
+    return <img src={image.src} alt={image.alt} className={`service-image ${image.place}`} />
+  }
+
+  useEffect(() => {
+    if (currentImage === 3) {
+      setCurrentImage(0)
+    }
+    let timer = setTimeout(() => setCurrentImage(currentImage + 1), 4000)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [currentImage])
 
   return (
     <section className="service-section">
-      <div className="service-bar">
-        <h2>Services</h2>
-        <ul>
-          <li>GIS</li>
-          <li>Consulting</li>
-          <li>Assessment</li>
-          <li>Remediation</li>
-          <li>Other</li>
-        </ul>
+      <div className="service-slide">
+        <Image image={serviceImage[currentImage]}/>
       </div>
-      <div className="service-main">
+      
 
-
+      <div className="service-top-header">
+        <ScrollAnimation offset={25} animateIn="fadeInDown" animateOnce={true} delay={250}><h1>Services</h1></ScrollAnimation>
+        <ScrollAnimation offset={25} animateIn="fadeInDown" animateOnce={true} delay={500}><p>HIES offers a variety of services across the range in Geographic Information Systems (GIS), Environmental, and Ecological work.</p></ScrollAnimation>
+        <ScrollAnimation offset={25} animateIn="fadeInDown" animateOnce={true} delay={750}><p>Send us a detailed request if a service appears unavailable, and HIES will make it work.</p></ScrollAnimation>
+      </div>
+      <div className="service-main-content">
+        <div className="service-bar">
+          <h2>Services</h2>
+          <div className="ui icon input">
+            <input
+            placeholder="Search Services with Keywords"
+            value={service}
+            onChange={handlesetSearch}
+            />
+            <i className="search icon" />
+          </div>
+          <ul>
+            <Link to='/services/gis'><li onClick={()=> dispatch(search(''))}>GIS<Arrow/></li></Link>
+            <Link to='/services/consulting'><li onClick={()=> dispatch(search(''))}>Consulting<Arrow/></li></Link>
+            <Link to='/services/assessment'><li onClick={()=> dispatch(search(''))}>Assessment<Arrow/></li></Link>
+            <Link to='/services/remediation'><li onClick={()=> dispatch(search(''))}>Remediation<Arrow/></li></Link>
+            <Link to='/services/other'><li onClick={()=> dispatch(search(''))}>Other<Arrow/></li></Link>
+          </ul>
+        </div>
+        <article className="service-article">
+          {service !== '' && renderSearch(service)}
+          {service === '' && 
+          <Fragment>
+            <Route path='/services/gis' component={GisPage}/>
+            <Route path='/services/consulting' component={ConsultingPage}/>
+            <Route path='/services/assessment' component={AssessmentPage}/>
+            <Route path='/services/remediation' component={RemediationPage}/>
+            <Route path='/services/other' component={OtherPage}/>
+            <Route exact path='/services' component={Service}/>
+          </Fragment>}
+        </article>
       </div>
     </section>
   )
 }
 
-const Service = () => {
+const Service = (props) => {
   return (
-    <article>
-      <div>
-        <h1>Services</h1>
-        <p>HIES offers a variety of services across the range in GIS, environmental, and biological work.</p>
-      </div>
-
-    </article>
+    <Fragment>
+      <ScrollAnimation offset={25} animateIn="fadeIn" animateOnce={true} delay={1000}>
+        <GisService/>
+        <ConsultingService />
+        <AssessmentService />
+        <RemediationService />
+        <OtherService />
+      </ScrollAnimation>
+    </Fragment>
   )
 }
 
-const Gisservice = () => {
+const GisService = (props) => {
   return (
-    <article>
-      <div>
+    <section className="service-main">
+      <div className="service-header">
+        <div className="service-header-title">
         <h1>GIS Services</h1>
-        <p>Geographic Information Systems (GIS) is a computer-based tool used in a variety of industries for performing information analysis, automated mapping, and data integration.</p>
-        <p>Our GIS services cover GIS design, database development, and custom GIS solution programming.</p>
-      </div>
-      <section className="gis-content">
-        <div>
-          <h3>GIS Surveying & Data Acquisition</h3>
-          <h3></h3>
-          <h3>Image Acquisition, Photogrammetry, Object Identification</h3>
-          <h3>Groundwater Modeling</h3>
+          <img className="service-icon" src="./images/icons/gis.png" alt="GIS Icon" />
         </div>
-
-
-
-      </section>
-    </article>
+        <p>Geographic Information Systems (GIS) incorporates geographical & spatial features with statistical data in order to map, analyze, and assess real-world problems. Accordingly at HIES, GIS services are available for mapping, analysis, and data acquisition for various applications.</p>
+        <p>Utilized in industries commonly for performing computer cartography and data integration, HIES provides these services in addition to site management & monitoring, remediation design, regulatory reporting, redevelopment planning, and decision support.</p>
+      </div>
+      <div className="gis-content">
+        {props.children}
+      </div>
+    </section>
   )
 }
 
-const services = {
-  gis: 
-  [{category: "GIS", name: "GIS Surveying & Data Acquisition", description: "HIES can assist almost any organization develop its use and implementation of GIS. Our process for managing technologically complex projects ensures delivery of high-value, low-risk solutions for clients.", keywords: "gis mapping data imagery cartography arc cadd internet aerial photogrammetry gps modeling deploy"},
-  {category: "GIS", name: "GIS Database Development", description: "HIES is equipped with several professional Information Technology experts who can create and facilitate all our clients technical needs.  Our most common requests are to create and maintain GIS databases, however our compatibilities encompass all IT aspects.", keywords: "gis mapping data imagery cartography arc cadd internet aerial photogrammetry gps modeling"},
-  {category: "GIS", name: "Custom GIS Programming", keywords: "gis mapping data imagery cartography arc cadd internet aerial photogrammetry gps modeling"},
-  {category: "GIS", name: "Groundwater Modeling", keywords: "gis mapping data imagery cartography arc cadd internet aerial photogrammetry gps modeling"},
-  {category: "GIS", name: "Image Acquisition, Photogrammetry, & Object Identification", keywords: "gis mapping data imagery cartography arc cadd internet aerial photogrammetry gps modeling"}],
-  consulting: 
-  [{category: "consulting", name: "Environmental Management Plans, Environmental Management System, Best Management Practices", description: "An Environmental Management System (EMS) is a set of processes and practices organized by the EPA which enable an organization to reduce its environmental impacts and increase its operating efficiency. HIES excels at assisting our clients with becoming more green and enhancing their businesses for long term growth while following EPA protocols.", keywords: "consulting consultation ems bmp compliance comply audits management"}, 
-  {category: "consulting", name: "Environmental Compliance Audits", description: "HIES provides environmental compliance audits for our clients in order to evaluate their compliance with all federal & state laws, and assess risk from regulated & unregulated practices.", keywords: "consulting consultation compliance comply laws federal state management audits understanding "}, 
-  {category: "consulting", name: "Construction Management", description: "HIES has managed and successfully completed numerous projects with  reputable construction partners throughout the Pacific region.  Our staff handles planning, coordination, Quality Assurance/Quality Control (QA/QC), and Health and Safety (H&S) oversight for our clients.", keywords: "consulting consultation construction management planning coordination qa qc quality assurance control health safety"},
-  {category: "consulting", name: "Hazardous Waste & Materials Management", description: "HIES recommends and implements responsible hazardous waste management techniques for our clients, ensuring that all EPA and State regulations are properly followed.", keywords: "consulting consultation management planning coordination control health safety regulations requirements law state epa contaminants hazardous remediate remediation"},
-  {category: "consulting", name: "Water & Wastewater Management, NPDES / SWPPP", description: "HIES is capable of managing all our clients' water quality needs.  We commonly prepare storm water permits for the Hawaii DOH, and monitor groundwater at contaminated sites. Storm Water Pollution Prevention Plans for National Pollutant Discharge Elimination System (NPDES) permitting are possible within our consultation services.", keywords: "consulting consultation management planning coordination control regulations requirements health safety contaminants waste remediate remediation groundwater permitting monitoring doh department clean water act national pollutant discharge elimination system npdes storm water pollution prevention plans swppp"},
-  {category: "consulting", name: "NEPA Compliance & Permitting, EIS/EA/EIA", description: "HIES assists our clients with all NEPA requirements including Environmental Impact Statements (EIS), Environmental Assessment (EA) if necessary, permit applications, and compliance.", description2: "An EIS is a detailed report describing the environmental impacts a proposed project is likely to have upon completion. These impacts include social impacts, economic impacts, and the expected impacts to the natural environment of the project area.", keywords: "consulting consultation compliance permitting law regulations requirements nepa national environmental policy act"},
-  {category: "consulting", name: "Military Munitions Response", description: "HIES offers technical support to government participants in the EPA regulated program for assessing hazards for munitions response sites. All staff are trained & qualified in emergency response and hazardous materials handling. Using strict engineering and quality control guidelines", description2: "HIES MEC/MC (Munitions & Explosives of Concern/Munitions Constituents) characterization & clearance group consists of former DoD UXO PM, UXO Safety, and QC assurance personnel. Our management and safety process complies with guidelines under Osha, CERCLA, COE EM-385, and DoD protocols. Using strict engineering and quality control guidelines, our team has streamlined the surveys, remediation, and clearance process to reduce human risks associated with MEC/MC.", keywords: "consulting consultation compliance permitting law regulations requirements military hazard munitions hazardous materials handling"}],
-  assessment: [{category: "assessment", name: "Asbestos, Mold, & Lead-based paint Assessments", description: "HIES has been involved with several large-scale asbestos, mold, and lead-based paint assessment & remediation projects. Personnel are certified by OSHA, EPA and the State of Hawaii Department of Health to work with asbestos, mold, & lead-based paint using the latest monitoring equipment to ensure all hazards are mitigated properly.", keywords: "assessment assess remediation remediate asbetos asbestos mold lead paint lead-based hazard removal remove"}, 
-  {category: "assessment", name: "Air Emissions Permitting, Sampling", description: "Staffed with certified air quality specialists, HIES can investigate and assess air quality issues at target sites.", keywords: "assessment assess remediation remediate"}, 
-  {category: "assessment", name: "CERCLA/RCRA Investigations & Audits", description: "Comprehensive Environmental Response, Compensation, & Liability Act (CERCLA 1980) is focused on the management and remediation of hazardous materials at abandoned, non-operating sites. Resource Conservation & Recovery Act (RCRA 1976) is focused on the management of solid and hazardous waste in active facilities and in transport. HIES has the capability to investigate and assess both.", keywords: "assessment assess remediation remediate hazardous waste resource conservation recovery act comprehensive response compensation liability cercla rcra"}, 
-  {category: "assessment", name: "Environmental Site Assessment (ESA) Phase I & II for Real Estate Transfer", description: "HIES is capable of completing Phase I & II ESA in accordance with the Association for Sampling and Testing Materials (ASTM) guidelines. Our assessments will inform of any existing or possible environmental liability issues associated with the property.", description2: "Phase I ESA is to assess the likelihood of environmental risks and contaminant hazards of the property. This may include a review of property records to determine past history and use of the property, a visual inspection of property as well as neighboring properties for condition, and interviews with property owners, operators, occupants, and local government officials.", description3: "If Phase I reveals evidence or high potential for environmental contamination of the property, Phase II ESA will assess the nature and extent of the concern. This may include direct sampling and analysis of water, soil, air, and building materials. Biological surveys of affected local species may also be conducted.", keywords: "assessment assess remediation remediate biology species esa phase investigate investigation possible contaminants hazards astm real estate transfer lender"}, 
-  {category: "assessment", name: "Laboratory Data Analysis & review", description: "HIES is capable of reviewing and reporting laboratory results from samples, whether collected personally from an assessment, or received from a client.", keywords: "assessment assess remediation remediate sample sampling science data analysis review understand inspect laboratory"},
-  {category: "assessment", name: "Laboratory Data Analysis & review", description: "HIES is capable of reviewing and reporting laboratory results from samples, whether collected personally from an assessment, or received from a client.", keywords: "assessment assess remediation remediate sample sampling science data analysis review understand inspect laboratory"},
-  {category: "assessment", name: "Biological Assessment", description: "All projects have a potential impact on local species and wildlife. At HIES, we have biologists capable of conducting species inventories, species management plans, endangered & invasive species surveys, longterm monitoring design of local biological subjects, and general biological assessments.", keywords: "assessment assess remediation remediate sample sampling science data analysis review understand inspect laboratory"}
-],
-  remediation: [{category: "remediation", name: "Remediation Systems Installation & Support", description: "HIES specializes in environmental investigations and cost-effective remediation for all types of contaminated property.  HIES is equipped with a team of experienced scientists who have extensive knowledge of remediation solutions.", description2: "If remediation is deemed necessary from an assessment, HIES’s team of scientists and engineers will design, implement, and maintain any remediation system necessary for our clients' contamination issues.", keywords: "remediate remediation contamination remove hazard hazardous materials resolve solutions clean contaminant"}],
-  other: [{category: "other", name: ""}]
+export const GisPage = (props) => {
+  return (
+    <Fragment>
+      <GisService/>
+      <GisSDA/>
+      <GisDD/>
+      <GisIOP/>
+    </Fragment>
+  )
+}
+
+const ConsultingService = (props) => {
+  return (
+    <section className="service-main">
+      <div className="service-header">
+        <div className="service-header-title">
+          <h1>Consulting Services</h1>
+          <img className="service-icon" src="./images/icons/consulting.png" alt="Consulting Icon" />
+        </div>
+        <p>Consultating services span across various fields of environmental work assisting clients achieve compliance, attain government permitting, and implement best practices.</p>
+        <p>Services cover management & monitoring, risk prevention, and remediation design & support for any business projects with environmental impact. Navigating environmental law will no longer be an obstacle.</p>
+      </div>
+      <div className="consulting-content">
+        {props.children}
+      </div>
+    </section>
+  )
+}
+
+export const ConsultingPage = (props) => {
+  return (
+    <Fragment>
+      <ConsultingService/>
+      <ConsultingEMP/>
+      <ConsultingCM/>
+      <ConsultingHW/>
+      <ConsultingUST/>
+      <ConsultingWWM/>
+      <ConsultingLP/>
+      <ConsultingSP/>
+      <ConsultingNCP/>
+    </Fragment>
+  )
+}
+
+const AssessmentService = (props) => {
+  return (
+    <section className="service-main">
+      <div className="service-header">
+        <div className="service-header-title">
+          <h1>Assessment Services</h1>
+          <img className="service-icon" src="./images/icons/assessment.png" alt="Assessment Icon" />
+        </div>
+        <p>HIES will assess the target site for actual and potential environmental impacts, both positive and negative. These environmental factors pertain to groundwater, air, soil, and structures, as well as their relationship to the people and local fauna/flora. Social and economic impact are also considered.</p>
+        <p>Depending on the state of environmental risks, we at HIES will suggest the most appropriate course of action, be it implementing a specific management system or better practices, and if necessary, immediate remediation work.</p>
+      </div>
+      <div className="assessment-content">
+        {props.children}
+      </div>
+    </section>
+  )
+}
+
+export const AssessmentPage = (props) => {
+  return (
+    <Fragment>
+      <AssessmentService/>
+      <AssessmentESA/>
+      <AssessmentECA/>
+      <AssessmentAML/>
+      <AssessmentAEP/>
+      <AssessmentGWM/>
+      <AssessmentBA/>
+    </Fragment>
+  )
 }
 
 
+const RemediationService = (props) => {
+  return (
+    <section className="service-main">
+      <div className="service-header">
+        <div className="service-header-title">
+          <h1>Remediation Services</h1>
+          <img className="service-icon" src="./images/icons/remediation.png" alt="Remediation Icon" />
+        </div>
+        <p>When an assessment indicates presence of environmental contaminants, HIES remediation services are readily available to remove all hazards.</p>
+        <p>Providing innovative & cost-effective solutions, HIES will meet client’s environmental restoration needs by offering conscientious design and installation of remediation systems.</p>
+        <p>Consultation services will present the most appropriate remedial alternatives to optimize clean up and meet regulatory requirements.</p>
+      </div>
+      <div className="remediation-content">
+        {props.children}
+      </div>
+    </section>
+  )
+}
 
-// const ServiceItem = ({serviceName, subServices}) => {
-// <ServiceItem serviceName={"GIS"} subServices={gis}/>
-//   const renderServices = () => {
-//     return subServices.map((service, index) => <a key={index} className="service-subservice-item" href={`${service.id}`}>{service.name}</li>)
-//   }
+export const RemediationPage = (props) => {
+  return (
+    <Fragment>
+      <RemediationService/>
+      <RemediationSI/>
+      <RemediationBR/>
+    </Fragment>
+  )
+}
 
-//   return (
-//     <div>
-//       <span>{serviceName}</span>
-//       <ul className="services-subservice-list">{renderServices()}</ul>
-//     </div>
-//   )
-// }
+const OtherService = (props) => {
+  return (
+    <section className="service-main">
+      <div className="service-header">
+        <div className="service-header-title">
+          <h1>Other Services</h1>
+          <img className="service-icon" src="./images/icons/other.png" alt="Other Icon." />
+        </div>
+        <p>In addition to our main services, HIES provides several proactive services for specific purposes. These include training courses, services pertaining to Department of Defense, and pioneering Zero Waste technology.</p>
+      </div>
+      <div className="other-content">
+        {props.children}
+      </div>
+    </section>
+  )
+}
+
+export const OtherPage = (props) => {
+  return (
+    <Fragment>
+      <OtherService/>
+      <OtherHMT/>
+      <OtherRS/>
+      <OtherMMR/>
+      <OtherDMS/>
+    </Fragment>
+  )
+}
+
+export const Arrow = () => {
+  return (
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"></path></svg>
+  )
+}
+

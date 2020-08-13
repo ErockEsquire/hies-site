@@ -34,17 +34,17 @@ export function HomeOne () {
           <h1>Hawaii International Environmental Services</h1>
           <p>offers a variety of services for commercial environmental needs in Hawaii, Guam, and Japan.</p>
             
-          <p>Services include GIS surveying & data acquisition, biological monitoring, environmental consulting, and hazard remediation, with true economical solutions beneficial for the environment.</p>
+          <p>Services include environmental consulting, environmental assessments, GIS surveying & data acquisition, biological monitoring, and hazard remediation, with true economical solutions beneficial for the environment.</p>
         </div>
       </div>
       <div className="home-services">
         <div className="home-center-text">
           <h2>Environment</h2>
-          <p>is defined by the physical land, air, water, structures, and their relationship to local people & living organisms. HIES Services aim to address concerns, risks, and potential impact pertaining to these environmental aspects.</p>
+          <p>is defined by the physical land, air, water, structures, and their relationship to local people & living organisms. HIES aims to address concerns, risks, and assess potential impact from operations affecting these environmental aspects.</p>
         </div>
         <div className="home-services-text">
           <h2>Environmental Consulting & Solutions</h2>
-          <p>By understanding our clients' goals, our licensed professionals design and implement efficient & cost-effective plans to remove environmental risks, while helping clients achieve environmental compliance</p>
+          <p>By understanding our clients' goals, our licensed professionals design and implement efficient & cost-effective plans to remove environmental risks and achieve environmental compliance</p>
         </div>
         <div className="home-services-cards">
           <div className="home-service-card">
@@ -57,11 +57,11 @@ export function HomeOne () {
                 </div>
               </div>
               <p>Utilizing Geographic Information Systems, we assist our clients with not only spacial imagery, but database design & development, and deployment of these sophisticated systems.</p>
-              <p>E.g. GIS Data Acquisition, Database Development, Groundwater modeling, Image Acquisition, Photogrammetry</p>
+              <p>e.g. GIS Data Acquisition, Database Development, Groundwater modeling, Image Acquisition, Photogrammetry</p>
             </Link>
           </div>
           <div className="home-service-card">
-            <Link to={'/services/consultating'}>
+            <Link to={'/services/consulting'}>
               <img className="home-service-card-image" src="./images/home/consultation-sign.jpg" alt="Consultation Services"/>
               <div className="home-service-card-title">
                 <h2 className="home-service-title">Consulting</h2>
@@ -70,7 +70,7 @@ export function HomeOne () {
                 </div>
               </div>
               <p>With our consultation services, clients will understand & implement best management practices while navigating government environmental laws.</p>
-              <p>E.g. Environmental compliance, SPCC support, NEPA, EIS/EA/EIA, NPDES/SWPPP, UST/AST management</p>
+              <p>e.g. Environmental compliance, SPCC support, NEPA, EIS/EA/EIA, NPDES/SWPPP, UST/AST management</p>
             </Link>
           </div>
           <div className="home-service-card">
@@ -83,7 +83,7 @@ export function HomeOne () {
                 </div>
               </div>
               <p>Our professionals will investigate the site for environmental issues. This includes biological surveys, and analyzing samples of groundwater, soil, air, or building materials for contaminants.</p>
-              <p>E.g. Asbestos, mold, & lead-based paint, hazmat surveys, CERCLA/RCRA audits, ESA Phase I & II</p>
+              <p>e.g. Asbestos, mold, & lead-based paint, hazmat surveys, CERCLA/RCRA audits, ESA Phase I & II</p>
             </Link>
           </div>
           <div className="home-service-card">
@@ -96,7 +96,7 @@ export function HomeOne () {
                 </div>
               </div>
               <p>If deemed necessary by an assessment, our team will effectively remove hazards & contaminants while implementing preventative measures to ensure protection against future environmental risks.</p>
-              <p>E.g. Remediation Systems Installation/Support</p>
+              <p>e.g. Remediation Systems Installation/Support</p>
             </Link>
           </div>
         </div>
@@ -116,7 +116,6 @@ export function HomeTwo() {
           </TypeScript>
         </div>
       </div>
-
     </section>
   )
 }

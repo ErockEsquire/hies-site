@@ -1,16 +1,352 @@
 $black: rgb(75, 64, 64);
 $sand: rgb(231, 204, 163);
+$green: rgb(118, 184, 82);
+$water: rgba(117,193,217,1);
 
 .service-section {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+  background: white;
+  position: relative;
+  z-index: 1;
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    color: $black;
+    text-transform: uppercase;
+  }
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    color: $black;
+    font-weight: 400;
+    margin-top: 3rem;
+  }
+  h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: $black;
+    font-weight: 400;
+    margin-top: 0;
+  }
+  p {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 1.2rem;
+    color: $black;
+  }
+  article {
+    z-index: 1;
+  }
 }
 
+.service-icon {
+  width: 6rem;
+  height: 6rem;
+}
 
 .services-subservice-list {
   transition: 600ms ease-in-out;
 }
 
+.service-main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
 .service-bar {
-  list-style: none;
+  display: flex;
+  flex-direction: column;
+  background: $water;
+  margin: 4rem 2vw 4rem 3vw;
+  height: fit-content;
+  padding: 2rem 0 1rem 0;
+  box-shadow: 1px 0 16px rgb(126, 125, 125);
+  z-index: 1;
+  position: sticky;
+  top: 8rem;
+  h2 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 0 3rem;
+    letter-spacing: 3px;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 5rem;
+      width: 20rem;
+      padding: 0 3rem 0 4rem;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.4rem;
+      color: $black;
+      transition: 600ms ease-in-out;
+      letter-spacing: 3px;
+      cursor: pointer;
+      svg {
+        height: 2rem;
+      }
+    }
+    li:hover {
+      background: rgb(82, 174, 202);;
+      color: white;
+    }
+    .small-type {
+      a {
+        display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: fit-content;
+          min-height: 3rem;
+          width: 20rem;
+          padding: 0 3rem 0 4.5rem;
+          font-family: "Fira Sans", sans-serif;
+          font-size: 1rem;
+          color: $black;
+          letter-spacing: 0;
+          transition: 600ms ease-in-out;
+          cursor: pointer;
+      }
+    }
+  }
+}
+
+.service-slide {
+  background-size: cover;
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 20rem;
+  z-index: 1;
+  .service-image {
+    object-fit: cover;
+    height: 20rem;
+    width: 100%;
+    animation: 
+      fadeIn 1s,
+      fadeOut 2s 3s;
+  }
+  .service-image.bottom {
+    object-position: center 20%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {opacity: .4;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  0% {opacity: 1;}
+  100% {opacity: .4;}
+}
+
+
+.service-top-header {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 20rem;
+  padding: 0 5vw;
+  z-index: 1;
+  background-color: rgba(75, 64, 64, .5);
+  h1 {
+    color: white;
+  }
+  p {
+    width: 25rem;
+    text-align: right;
+    color: white;
+  }
+  .animated.fadeInDown:last-child {
+    margin-top: 1rem;
+  }
+}
+
+.service-bottom-headers {
+  padding-top: 1rem;
+  padding-bottom: 6rem;
+}
+
+.service-article {
+  width: 75%;
+  padding: 1rem 3rem 6rem 0;
+}
+
+.service-main {
+  padding: 2rem 2.5rem;
+  box-shadow: 0 14px 10px -15px #888;
+  h1 {
+    font-weight: 500;
+  }
+}
+
+.service-header-title {
+  display: flex;
+  align-items: center;
+}
+
+.service-card {
+  margin: 3vh 0;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 14px 10px -15px #888;
+  .service-card-text {
+    padding: 4vh 2vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    ul {
+      list-style: none;
+      font-family: "Fira Sans";
+      li {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+  h2 {
+    letter-spacing: 1px;
+    border-bottom: 4px solid rgb(85, 94, 94);
+  }
+  h3 {
+    padding-left: 1vw;
+    letter-spacing: 1px;
+  }
+  p {
+    padding-left: 2vw;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  .service-card-image-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .service-card-image {
+      width: 21rem;
+      height: 100%;
+      max-height: 16rem;
+      object-fit: cover;
+      box-shadow: 0 5px 10px 0 #888;
+    }
+    .service-card-image-seal {
+      width: 21rem;
+      height: 100%;
+      max-height: 16rem;
+      object-fit: contain;
+    }
+    .service-card-image, span {
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .service-card-image:last-child {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.service-card-image-container {
+  .carousel-root {
+    outline: none;
+    width: 21rem;
+    .carousel .slide {
+      background: none;
+    }
+    .carousel .control-dots {
+      display: none;
+    }
+  }
+}
+
+.ui.input {
+  padding: 0 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .service-section {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    position: relative;
+    h1 {
+      font-size: 2.5rem;
+    }
+    h2 {
+      font-size: 2rem;
+      font-weight: 400;
+      margin-top: 3rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-top: 0;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .service-slide {
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    height: 20rem;
+    background-color: transparent;
+    z-index: 1;
+  }
+
+
+  .service-top-header {
+    justify-content: initial;
+    width: 100%;
+    h1 {
+      padding-top: 2rem;
+    }
+    p {
+      width: initial;
+    }
+    .animated.fadeInDown:last-child {
+      width: 17rem;
+    }
+  }
+
+  .service-main-content {
+    flex-direction: column;
+  }
+
+  .service-bar {
+    top: 4rem;
+    padding: 1rem 0;
+    z-index: 2;
+    margin: 0;
+    h2 {
+      display: none;
+    }
+    ul {
+      display: none;
+    }
+  }
+
+  .service-article {
+    width: 100%;
+    padding: 0;
+  }
+
+  .service-card {
+    flex-direction: column;
+    .service-card-text {
+      padding: 3vh 5vw;
+    }
+  }
 }
