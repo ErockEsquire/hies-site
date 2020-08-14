@@ -28,10 +28,10 @@ export default function Navbar() {
         </div>
       </Link>
       <div className="nav-items">
-        <NavitemList list={about}><Link to="/about">ABOUT</Link></NavitemList>
-        <NavitemList list={projects}><Link to="/projects">PROJECTS</Link></NavitemList>
-        <NavitemList list={services}><Link to="/services" onClick={()=> dispatch(search(''))}>SERVICES</Link></NavitemList>
-        <NavitemLink>REQUEST A QUOTE</NavitemLink>
+        <NavitemList list={about}><Link to="/about">About</Link></NavitemList>
+        <NavitemList list={projects}><Link to="/projects">Projects</Link></NavitemList>
+        <NavitemList list={services}><Link to="/services" onClick={()=> dispatch(search(''))}>Services</Link></NavitemList>
+        <NavitemLink><Link to="/contact">Contact US</Link></NavitemLink>
       </div>
 
       <OutsideClickHandler

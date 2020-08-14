@@ -1,0 +1,105 @@
+$black: rgb(75, 64, 64);
+$sand: rgb(231, 204, 163);
+$green: rgb(118, 184, 82);
+$water: rgba(117,193,217,1);
+
+.contact-section {
+  background: white;
+  position: relative;
+  z-index: 1;
+  h2 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    color: $black;
+  }
+  p {
+    color: $black;
+  }
+}
+
+.contact-top-header {
+  color: $black;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../images/shore.jpg');
+  background-size: cover;
+  background-position: bottom;
+  background-attachment: fixed;
+  padding: 3vh 5vw;
+  height: 20rem;
+  h1 {
+    font-family: 'Expletus Sans', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 1px 1px 3px $black;
+  }
+}
+
+.contact-main-content {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10vh 7vw;
+  .contact-sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 1rem;
+    height: fit-content;
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: .5rem;
+      letter-spacing: 1px;
+    }
+    p {
+      font-size: 1rem;
+      margin: .25rem;
+    }
+    .contact-office {
+      width: 15rem;
+      padding: 1rem;
+      margin: .5rem;
+      height: fit-content;
+    }
+  }
+  .contact-form {
+    min-width: 45vw;
+    margin: 1rem;
+    p {
+      margin-left: 0;
+      font-size: 1.1rem;
+    }
+    .ui.form .field > label {
+      font-family: "Lato", sans-serif;
+      font-weight: 500;
+      font-size: 1.1rem;
+      color: $black;
+      letter-spacing: 1px;
+    }
+    .ui.button {
+      background: $water;
+    }
+    .ui.button:hover {
+      background: $water;
+      filter: brightness(1.05);
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .contact-main-content {
+    flex-direction: column;
+    padding: 5vh 2vw;
+    .contact-sidebar {
+      .contact-office {
+        width: 100%;
+      }
+    }
+    .ui.form .fields{
+        margin-bottom: 1rem;
+    }
+  }
+}

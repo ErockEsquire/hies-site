@@ -18,7 +18,7 @@ body {
   overflow-x: hidden;
 }
 
-.contact-section {
+.contact-info-section {
   z-index: 0;
   position: sticky;
   bottom: 0;
@@ -104,7 +104,7 @@ body {
 }
 
 @media only screen and (max-width: 1000px) {
-  .contact-section {
+  .contact-info-section {
     overflow: hidden;
     position: relative;
   }
@@ -125,7 +125,7 @@ body {
     }
   }
 
-  .contact-section {
+  .contact-info-section {
     overflow: hidden;
     background-attachment: initial;
     .contact-color {
@@ -176,24 +176,7 @@ body {
     }
   }
 
-  .geo-section {
-    .geo-image-container {
-      margin-bottom: 1rem;
-      .geo-image-card {
-        margin: 2rem 0 0 0;
-        height: 23vh;
-        padding: 2rem 0;
-        .geo-image {
-          height: 18vh;
-        }
-      }
-    }
-    .geo-text {
-      padding: 3rem 15vw;
-    }
-  }
-
-  .contact-section {
+  .contact-info-section {
     background-attachment: initial;
     background-position-x: 40%;
     .contact-color {

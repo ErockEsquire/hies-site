@@ -1,9 +1,9 @@
 import React from 'react'
 import { Icon } from 'semantic-ui-react'
 
-export default function Contact() {
+export default function ContactInfo() {
   return(
-    <section className="contact-section">
+    <section className="contact-info-section">
       <div className="contact-color">
 
         <div className="contact-text">

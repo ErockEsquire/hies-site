@@ -49,6 +49,11 @@ export default function SideNav ({ openSide, setOpenSide }) {
         <Link to="/services/remediation" onClick={() => {setOpenSide(false);dispatch(search(''))}}>Remediation</Link>
         <Link to="/services/other" onClick={() => {setOpenSide(false);dispatch(search(''))}}>Other</Link>
       </div>
+
+      <span className="side-navbar-listitem">
+        <Link to="/contact" onClick={() => setOpenSide(!openSide)}>CONTACT US</Link>
+      </span>
+      
     </div>
   )
 }

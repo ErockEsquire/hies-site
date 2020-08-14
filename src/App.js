@@ -1,12 +1,13 @@
 import React from 'react';
 import './App.scss';
 import Navbar from './containers/navbar'
-import Contact from './home/contact'
+import ContactInfo from './home/contact'
 import Main from './home/main'
 import About from './about/about'
 import Leaders from './about/leaders'
 import Projects from './projects/projects'
 import Services from './services/service'
+import Contact from './contact/contact'
 import NotFound from './containers/NotFound'
 import ScrollToTop from './containers/scroll'
 
@@ -22,12 +23,13 @@ function App() {
         <Route exact={true} path="/" component={Main}/>
         <Route path="/about" component={About}/>
         <Route path="/leaders" component={Leaders}/>
-        <Route path="/services" component={Services}/>
         <Route path="/projects" component={Projects}/>
+        <Route path="/services" component={Services}/>
+        <Route path="/contact" component={Contact}/>
         <Route path="/404" component={NotFound} />
         <Redirect to="/404" />
       </Switch>
-      <Contact/>
+      <ContactInfo/>
     </div>
   );
 }

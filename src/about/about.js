@@ -10,7 +10,7 @@ export const About = () => {
   return (
     <section className="about-section">
       <div className="about-top-header">
-      <ScrollAnimation offset={25} animateIn="fadeInDown" animateOnce={true} delay={250}><h1>Hawaii International Environmental Services</h1></ScrollAnimation>
+        <ScrollAnimation offset={25} animateIn="fadeInDown" animateOnce={true} delay={250}><h1>Hawaii International Environmental Services</h1></ScrollAnimation>
       </div>
 
       <div className="about-main-content">

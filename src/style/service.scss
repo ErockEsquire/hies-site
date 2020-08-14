@@ -113,6 +113,9 @@ $water: rgba(117,193,217,1);
       }
     }
   }
+  .ui.input {
+    padding: 0 2rem;
+  }
 }
 
 .service-slide {
@@ -267,9 +270,6 @@ $water: rgba(117,193,217,1);
   }
 }
 
-.ui.input {
-  padding: 0 2rem;
-}
 
 @media only screen and (max-width: 600px) {
   .service-section {
