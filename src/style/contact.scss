@@ -91,7 +91,7 @@ $water: rgba(117,193,217,1);
 
 @media only screen and (max-width: 600px) {
   .contact-main-content {
-    flex-direction: column;
+    flex-direction: column-reverse;
     padding: 5vh 2vw;
     .contact-sidebar {
       .contact-office {

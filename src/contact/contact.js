@@ -10,33 +10,6 @@ export default function Contact() {
         <ScrollAnimation offset={25} animateIn="fadeInDown" animateOnce={true} delay={250}><h1>Hawaii International Environmental Services</h1></ScrollAnimation>
       </div>
       <div className="contact-main-content">
-        <div className="contact-form">
-          <h2>Contact us!</h2>
-          <p>Send us your request or any questions you may have, and we will get back to you as soon as possible.</p>
-          <Form>
-            <Form.Group>
-              <Form.Input width={14} fluid label='Your name' placeholder='First and Last Name...' />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Input width={14} fluid label='Your email' placeholder='Email Address...' />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Input width={14} fluid label='Your phone number' placeholder='Phone Number...' />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.Input width={14} fluid label='Subject matter and location' placeholder='What is this about?' />
-            </Form.Group>
-
-            <Form.Group>
-              <Form.TextArea width={14} label='Your request' placeholder='Explain your request or question in detail' />
-            </Form.Group>
-
-            <Form.Button>Submit</Form.Button>
-          </Form>
-        </div>
 
         <div className="contact-sidebar">
           <div className="contact-office">
@@ -70,6 +43,34 @@ export default function Contact() {
             <p><strong>Fax:</strong> 303-840-7967</p>
             <p>HIES-Colorado@hiesinc.com</p>
           </div>
+        </div>
+
+        <div className="contact-form">
+          <h2>Contact us!</h2>
+          <p>Send us your request or any questions you may have, and we will get back to you as soon as possible.</p>
+          <Form>
+            <Form.Group>
+              <Form.Input width={14} fluid label='Your name' placeholder='First and Last Name...' />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Input width={14} fluid label='Your email' placeholder='Email Address...' />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Input width={14} fluid label='Your phone number' placeholder='Phone Number...' />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Input width={14} fluid label='Subject matter and location' placeholder='What is this about?' />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.TextArea width={14} label='Your request' placeholder='Explain your request or question in detail' />
+            </Form.Group>
+
+            <Form.Button>Submit</Form.Button>
+          </Form>
         </div>
       </div>
     </section>
