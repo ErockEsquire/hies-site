@@ -192,12 +192,12 @@ $water: rgba(117,193,217,1);
     opacity: 0;
     animation: 
       fadeIn 3s,
-      fadeOut 2s 3s;
+      fadeOut 2s ease-in 3s;
   }
 }
 
 @keyframes fadeIn {
-  0% {opacity: .4;}
+  0% {opacity: 0;}
   100% {opacity: 1;}
 }
 

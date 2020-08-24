@@ -106,6 +106,7 @@ $water: linear-gradient(90deg, rgba(82,174,203,1) 16%, rgba(117,193,217,1) 31%);
       background: rgb(75, 64, 64);
       color: $sand;
       transition: 400ms ease-in-out;
+      text-transform: none;
     }
     .nav-dropdown-a:last-child {
       border-radius: 0 0 5px 5px;
