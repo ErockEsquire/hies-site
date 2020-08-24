@@ -130,20 +130,20 @@ $water: rgba(117,193,217,1);
     height: 20rem;
     width: 100%;
     animation: 
-      fadeIn 1s,
-      fadeOut 2s 3s;
+      fadeInService 1s,
+      fadeOutService 2s 3s;
   }
   .service-image.bottom {
     object-position: center 20%;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInService {
   0% {opacity: .4;}
   100% {opacity: 1;}
 }
 
-@keyframes fadeOut {
+@keyframes fadeOutService {
   0% {opacity: 1;}
   100% {opacity: .4;}
 }

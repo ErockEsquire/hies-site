@@ -191,17 +191,17 @@ $water: rgba(117,193,217,1);
     object-fit: contain;
     opacity: 0;
     animation: 
-      fadeIn 3s,
-      fadeOut 2s ease-in-out 2s;
+      fadeInHome 3s,
+      fadeOutHome 2s ease-in-out 2s;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInHome {
   0% {opacity: 0;}
   100% {opacity: 1;}
 }
 
-@keyframes fadeOut {
+@keyframes fadeOutHome {
   0% {opacity: 1;}
   100% {opacity: 0;}
 }
