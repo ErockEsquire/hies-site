@@ -70,7 +70,7 @@ export default function Services() {
 
   const [currentImage, setCurrentImage] = useState(0)
 
-  const serviceImage = [{src: "./images/services/slide1.jpg", alt: "Environmental sample testing in lab.", place: "center"}, {src: "./images/services/slide2.jpg", alt: "Shaking hands over reports and invoices.", place: "center"}, {src: "./images/services/slide3.jpg", alt: "GIS surveying equipment on the field", place: "bottom"}, {src: "./images/services/slide3.jpg", alt: "GIS surveying equipment on the field", place: "bottom"}]
+  const serviceImage = [{src: "./images/services/slide1.jpg", alt: "Environmental sample testing in lab.", place: "center"}, {src: "./images/services/slide2.jpg", alt: "", place: "center"}, {src: "./images/services/slide3.jpg", alt: "", place: "bottom"}, {src: "./images/services/slide3.jpg", alt: "", place: "bottom"}]
 
   const Image = ( { image } ) => {
     return <img src={image.src} alt={image.alt} className={`service-image ${image.place}`} />
