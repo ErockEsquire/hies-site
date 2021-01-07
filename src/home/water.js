@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import '../style/water.scss'
 import ScrollAnimation from 'react-animate-on-scroll';
 import * as PIXI from 'pixi.js-legacy'
