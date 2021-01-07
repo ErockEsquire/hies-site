@@ -1,39 +1,8 @@
 import React, { Fragment } from 'react';
 import '../style/water.scss'
 import ScrollAnimation from 'react-animate-on-scroll';
-import * as PIXI from 'pixi.js-legacy'
 
 export default function Water() {
-
-  function initPixi() {
-    let app = new PIXI.Application({width: window.innerWidth, height: window.innerHeight});
-    const container = document.getElementById('water-script')
-    container.appendChild(app.view);
-
-    let image = new PIXI.Sprite.from("./images/bluewater.png");
-    image.width = window.innerWidth;
-    image.height = window.innerHeight;
-    app.stage.addChild(image);
-
-    let displacementSprite = new PIXI.Sprite.from("./images/cloud.jpg");
-    let displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
-    displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-    app.stage.addChild(displacementSprite);
-    app.stage.filters = [displacementFilter];
-
-    app.renderer.view.style.transform = 'scale(1.00)';
-
-    displacementSprite.scale.x = 4;
-    displacementSprite.scale.y = 4;
-
-    function animate() {
-      displacementSprite.x += 8;
-      displacementSprite.y += 3;
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  }
 
   return(
     <Fragment>
@@ -43,7 +12,7 @@ export default function Water() {
       </div>
       <section className="water-section">
         <div className="water-cover"/>
-        <div id="water-script">{initPixi()}</div>
+        <div id="water-script"></div>
       </section>
     </Fragment>
   )
